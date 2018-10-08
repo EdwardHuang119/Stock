@@ -20,4 +20,4 @@ tsla_df=ABuSymbolPd.make_kl_df('usTSLA',n_folds=2)
 
 # print(tsla_df[['close','low','p_change']][(np.abs(tsla_df.p_change)>8)&(tsla_df.volume>2.5*tsla_df.volume.mean())])
 # print(tsla_df[['close','low','p_change']][(tsla_df.p_change)>8&(tsla_df.volume>2.5*tsla_df.volume.mean())])
-print(tsla_df.sort_index(by='p_change',ascending=False)[:5])
+print(tsla_df.sort_index(by='p_change',ascending=True)[:5])
