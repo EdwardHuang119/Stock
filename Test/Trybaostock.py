@@ -17,10 +17,10 @@ lg = bs.login(user_id="anonymous", password="123456")
 # print(result)
 
 cc = ts.get_hist_data('000002','2009-01-01','2018-10-08','D')
-# print(cc)
+print(type(cc),cc)
 
 # dd = ts.get_h_data('000002','2009-01-01')
 # print(dd)
-help(ts.get_h_data)
+# help(ts.get_h_data)
 bs.logout()
 
