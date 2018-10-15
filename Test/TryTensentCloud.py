@@ -12,11 +12,13 @@ fatherpath = os.path.abspath(os.path.dirname(os.getcwd()))
 configpath = fatherpath+'\\confing'+'\\'+configname
 cf = ConfigParser()
 cf.read(configpath)
-host = cf.get("tencentcdb","host")
-port = int(cf.get("tencentcdb","port"))
-user = cf.get("tencentcdb","user")
-passwd = cf.get("tencentcdb","passwd")
-dba = cf.get("tencentcdb","db")
+# dbchoese = 'tencentcdb'
+dbchoese = 'localdb'
+host = cf.get(dbchoese,"host")
+port = int(cf.get(dbchoese,"port"))
+user = cf.get(dbchoese,"user")
+passwd = cf.get(dbchoese,"passwd")
+dba = cf.get(dbchoese,"db")
 
 
 def connect_db():
