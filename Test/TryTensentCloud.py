@@ -9,16 +9,21 @@ from configparser import ConfigParser
 # 读取配置文件处理
 configname = 'config.conf'
 fatherpath = os.path.abspath(os.path.dirname(os.getcwd()))
-configpath = fatherpath+'\\confing'+'\\'+configname
+configpath = fatherpath+'/confing'+'//'+configname
+# print(configpath)
 cf = ConfigParser()
 cf.read(configpath)
-dbchoese = 'tencentcdb'
+# print(cf.sections())
+
+dbchoese = "tencentcdb"
 # dbchoese = 'localdb'
 host = cf.get(dbchoese,"host")
 port = int(cf.get(dbchoese,"port"))
 user = cf.get(dbchoese,"user")
 passwd = cf.get(dbchoese,"passwd")
 dba = cf.get(dbchoese,"db")
+
+# print(host)
 
 
 def connect_db():

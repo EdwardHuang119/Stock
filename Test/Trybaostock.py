@@ -9,7 +9,7 @@ lg = bs.login(user_id="anonymous", password="123456")
 
 # 获取股票的基本记录
 # rs = bs.query_stock_basic(code="sh.600000")
-rs = bs.query_stock_basic()
+rs = bs.query_stock_basic(code="sh.600000")
 data_list = []
 while (rs.error_code == '0') & rs.next():
     # 获取一条记录，将记录合并在一起
