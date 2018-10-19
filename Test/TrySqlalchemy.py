@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from sqlalchemy import create_engine, event,MetaData,Table
+from sqlalchemy import create_engine, event,MetaData,Table,select,insert,update
 # from sqlalchemy import *
 import pymysql
 
@@ -9,9 +9,16 @@ conn = engine.connect()
 metadata = MetaData(engine)
 
 def serch():
-    table = Table('Stock_basic', metadata, autoload=True)
+    table = Table('stock_basic', metadata, autoload=True)
     s = select([table])
     conn.execute(s)
+
+def insert():
+
+
+c=serch()
+print(c)
+
 
 
 
