@@ -14,6 +14,7 @@ def serch():
     conn.execute(s)
 
 def insert():
+    table =Table('stock_basic',metadata,autoload=True)
 
 
 c=serch()
