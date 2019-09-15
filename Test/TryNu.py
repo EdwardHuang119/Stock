@@ -6,6 +6,8 @@ from abupy import ABuSymbolPd
 from abupy import ABuMarketDrawing
 import mpl_finance as mpf
 import matplotlib.pyplot as plt
+import platform
+
 
 # np_list = np.arange(10000)
 
@@ -25,7 +27,11 @@ import matplotlib.pyplot as plt
 # stock_day_change = np.random.standard_normal((stock_cnt,view_days))
 # np.save(r'C:\Users\Edward & Bella\Desktop\stork\stock_ day_ change\',stock_day_change)
 
-stock_day_change = np.load(r'C:\Users\Edward & Bella\Desktop\stork\stock_day_change\stock_day_change.npy')
+if platform.system() == 'Windows':
+    # 首先确认一下本机的运行环境是否是windows
+    stock_day_change = np.load(r'C:\Users\Edward & Bella\Desktop\stork\stock_day_change\stock_day_change.npy')
+else:
+    stock_day_change = 0
 # print(stock_day_change)
 # print(stock_day_change.shape)
 
