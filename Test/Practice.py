@@ -1,8 +1,22 @@
 # -*- coding: utf-8 -*-
-import platform
 
-systemtype = platform.system()
-if systemtype == 'Windows':
-    print('a')
-else:
-    print('b')
+
+import Test.TushareProApi
+
+from Test.TushareProApi import GetdatlyfromCname
+from Test.TushareProApi import Getconcept_detail
+from Test.TushareProApi import Getdailyfromconcept
+import Test.QyptTableView
+from Test.QyptTableView import Dataframdatashow
+
+
+show = True
+show_func = print if show else lambda a: a
+
+# daily = GetdatlyfromCname('宋城演A', '20190101', '20191002')
+conceptlist = Getdailyfromconcept('TS355', 20191009, 20191010)
+
+# Dataframdatashow(conceptlist)
+Dataframdatashow(Getconcept_detail('TS328',''))
+
+

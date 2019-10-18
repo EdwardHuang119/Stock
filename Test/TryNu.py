@@ -31,7 +31,7 @@ if platform.system() == 'Windows':
     # 首先确认一下本机的运行环境是否是windows
     stock_day_change = np.load(r'C:\Users\Edward & Bella\Desktop\stork\stock_day_change\stock_day_change.npy')
 else:
-    stock_day_change = 0
+    stock_day_change = np
 # print(stock_day_change)
 # print(stock_day_change.shape)
 

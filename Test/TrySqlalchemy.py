@@ -16,7 +16,6 @@ def serch():
 def insert():
     table =Table('stock_basic',metadata,autoload=True)
 
-
 c=serch()
 print(c)
 
