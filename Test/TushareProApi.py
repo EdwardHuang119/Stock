@@ -150,7 +150,11 @@ def moneyflowlist(ts_code,trade_date,start_date,end_date):
             moneyflowpercode = moneyflow(ts_code=ts_code[i], trade_date=trade_date,start_date='',end_date='')
             moneyflowpf = pd.concat([moneyflowpf,moneyflowpercode])
             i = i+1
-        return moneyflowpf
+        if moneyflowpf.shape[0] >= 4000:
+            print('单股票单个日期返回结果超过4000（moneyflowlist）')
+        else:
+            return moneyflowpf
+        # return moneyflowpf
     elif type(ts_code) == list and trade_date == '' and start_date !='' and end_date !='':
         # 一个股票池和多个日期
         moneyflowpf = pd.DataFrame()
@@ -158,7 +162,33 @@ def moneyflowlist(ts_code,trade_date,start_date,end_date):
             moneyflowpercode = moneyflow(ts_code=ts_code[i], trade_date='', start_date=start_date, end_date=end_date)
             moneyflowpf = pd.concat([moneyflowpf, moneyflowpercode])
             i = i + 1
-        return moneyflowpf
+        if moneyflowpf.shape[0] >= 4000:
+            print('单股票池多个日期返回结果超过4000（moneyflowlist）')
+        else:
+            return moneyflowpf
+        # print('多个股票多个日期还没开发呢')
+    elif type(ts_code) != list:
+        print('朋友单个股票去调用moneyflow')
+
+
+
+def stockcodelist(df,ts_code,name_code):
+    # 将一个含有ts_code的dataframe改成返回ts_code的list或者含有ts_code和name的list
+    if isinstance(df,pd.DataFrame):
+        # print('兄弟给个dataframe过来呢。stockcodelist',type(pd))
+    # 判断给的pd是不是dataframe，如果不是则报错。
+        if ts_code !='' and name_code == '':
+            stock_list = df[ts_code].tolist()
+            return stock_list
+    # 如果在只是给出了ts_code在整个dataframe里面的列名。则直接转换成只有ts_code的list。
+        elif ts_code !='' and name_code !='':
+            stock_array = [(ts_code, name) for ts_code, name in zip(df[ts_code], df[name_code])]
+            stock_listwithname = list(stock_array)
+            return stock_listwithname
+    else:
+        print('兄弟给个dataframe过来呢。stockcodelist')
+
+
 
 
 
@@ -173,4 +203,9 @@ if __name__ == "__main__":
     # 如上是尝试通过某个已经知道的概念id来获取当时所有股票的涨幅情况
     # show_func(moneyflow('000001.SZ','20191016','',''))
     # show_func(moneyflowlist(['000001.SZ','601398.SH'],'20191016','',''))
-    show_func(moneyflowlist(['000001.SZ','601398.SH'],'','20190101','20191010'))
+    # concerp = show_func(Getconcept(''))
+    stock_pf = Getconcept_detail('TS26','')
+    # show_func(stock_pf)
+    stock_list = stockcodelist(stock_pf,'ts_code','')
+    # show_func(type(stock_list))
+    show_func(moneyflowlist(stock_list,'','20190601','20191018'))
