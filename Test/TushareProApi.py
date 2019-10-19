@@ -4,7 +4,8 @@
 import tushare as ts
 import pandas as pd
 import numpy as np
-# from fuzzywuzzy
+from Test.QyptTableView import Dataframdatashow
+
 
 ts.set_token('22e74c8e4523bb24f26bcd5706617b2059c0e4e0f7f9df3559c5b000')
 pro = ts.pro_api()
@@ -189,10 +190,6 @@ def stockcodelist(df,ts_code,name_code):
         print('兄弟给个dataframe过来呢。stockcodelist')
 
 
-
-
-
-
 if __name__ == "__main__":
     show=True
     show_func = print if show else lambda a: a
@@ -208,4 +205,6 @@ if __name__ == "__main__":
     # show_func(stock_pf)
     stock_list = stockcodelist(stock_pf,'ts_code','')
     # show_func(type(stock_list))
-    show_func(moneyflowlist(stock_list,'','20190601','20191018'))
+    # show_func(moneyflowlist(stock_list,'','20190601','20191018'))
+    # Dataframdatashow(moneyflowlist(stock_list, '', '20190601', '20191018'))
+    # moneyflowlist(stock_list, '', '20190601', '20191018').to_csv('DATa1.csv')

@@ -4,9 +4,7 @@ import sys
 import pandas as pd
 from PyQt5.QtWidgets import QApplication, QTableView
 from PyQt5.QtCore import QAbstractTableModel, Qt
-
-
-from Test.TushareProApi import Getdailyfromconcept, Getconcept
+# from Test.TushareProApi import Getdailyfromconcept, Getconcept
 
 '''''''''
 def QyTalbeShow(data):
