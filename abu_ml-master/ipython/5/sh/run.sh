@@ -1,1 +1,0 @@
-/root/caffe/build/tools/caffe train -solver /root/maxmon/lr/pb/solver.prototxt

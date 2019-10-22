@@ -6,7 +6,6 @@ import pandas as pd
 import numpy as np
 from Test.QyptTableView import Dataframdatashow
 
-
 ts.set_token('22e74c8e4523bb24f26bcd5706617b2059c0e4e0f7f9df3559c5b000')
 pro = ts.pro_api()
 show_fuck = print()
@@ -170,7 +169,6 @@ def moneyflowlist(ts_code,trade_date,start_date,end_date):
         # print('多个股票多个日期还没开发呢')
     elif type(ts_code) != list:
         print('朋友单个股票去调用moneyflow')
-
 
 
 def stockcodelist(df,ts_code,name_code):
